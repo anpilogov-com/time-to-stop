@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/anpilogov-com/time-to-stop#readme",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.42.1"
   }
 }
