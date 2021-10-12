@@ -4,22 +4,21 @@ const sourcemaps = require("gulp-sourcemaps");
 const svgo = require("gulp-svgo");
 
 gulp.task("scss", () => {
-  return gulp
-    .src("./styles/scss/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest("./styles/css/"));
+   return gulp
+      .src("./styles/scss/*.scss")
+      .pipe(sourcemaps.init())
+      .pipe(sass().on("error", sass.logError))
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest("./styles/css/"));
 });
 
 gulp.task("svgo", () => {
-  return gulp
-    .src("./images/*.svg")
-    .pipe(svgo())
-    .pipe(gulp.dest("./images/opt/"));
+   return gulp
+      .src("./images/*.svg")
+      .pipe(svgo())
+      .pipe(gulp.dest("./images/opt/"));
 });
 
 gulp.task("watcher", () => {
-  gulp.watch("./styles/scss/", gulp.series("scss"));
-  gulp.watch("./images/", gulp.series("svgo"));
+   gulp.watch("./styles/scss/", gulp.series("scss"));
 });
