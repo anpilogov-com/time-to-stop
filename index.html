@@ -1,16 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="time, stop, timer, watch">
-    <meta name="description" content="This is a simple timer!">
-    <title>TimeToStop</title>
-    <link rel="stylesheet" href="./styles/css/style.css">
-  </head>
-  <body>
-
-      <script src="./scripts/mail.js"></script>
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="keywords" content="time, stop, timer, watch" />
+      <meta name="description" content="This is a simple timer!" />
+      <title>TimeToStop</title>
+      <link rel="stylesheet" href="./styles/css/style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body class="body">
+      <header class="header">
+         <menu class="menu">
+            <div class="quik-action">
+               <div class="light-switch">
+                  <span></span>
+               </div>
+               <div class="burger">
+                  <span></span>
+               </div>
+            </div>
+            <div class="extend-action">
+               <nav class="navigation">
+                  <ul class="list">
+                     <li class="list__item">
+                        <svg
+                           class="action__icon action__icon--light"
+                           height="24"
+                           width="24"
+                        >
+                           <use
+                              xlink:href="./images/icons-pack.svg#icon-github"
+                           ></use>
+                        </svg>
+                        <a
+                           href="https://github.com/anpilogov-com/"
+                           rel="noopener"
+                           class="list__content"
+                           target="_blank"
+                           title="link to my GitHUB"
+                        >
+                           I'm on GitHUB
+                        </a>
+                     </li>
+                     <li class="list__item">
+                        <svg
+                           class="action__icon action__icon--light"
+                           height="24"
+                           width="24"
+                        >
+                           <use
+                              xlink:href="./images/icons-pack.svg#icon-info"
+                           ></use>
+                        </svg>
+                        <span class="list__content">Information</span>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </menu>
+      </header>
+      <main class="main">
+         <section class="timer">
+            <div class="timer__block">
+               <time class="time time--dot hour">00</time>
+            </div>
+            <div class="timer__block">
+               <time class="time time--dot minute">00</time>
+            </div>
+            <div class="timer__block">
+               <time class="time time--dot second">00</time>
+            </div>
+            <div class="timer__block">
+               <time class="time millisecond">00</time>
+            </div>
+         </section>
+         <section class="actions">
+            <button class="action__start" aria-label="Start timer">
+               <svg class="action__icon" height="24" width="24">
+                  <use xlink:href="./images/icons-pack.svg#icon-play"></use>
+               </svg>
+            </button>
+            <button class="action__pouse" aria-label="Pouse timer">
+               <svg class="action__icon" height="24" width="24">
+                  <use xlink:href="./images/icons-pack.svg#icon-pouse"></use>
+               </svg>
+            </button>
+            <button class="action__stop" aria-label="Stop timer">
+               <svg class="action__icon" height="24" width="24">
+                  <use xlink:href="./images/icons-pack.svg#icon-stop"></use>
+               </svg>
+            </button>
+            <button class="action__loop" aria-label="Loop timer">
+               <svg class="action__icon" height="24" width="24">
+                  <use xlink:href="./images/icons-pack.svg#icon-loop"></use>
+               </svg>
+            </button>
+         </section>
+      </main>
+      <footer class="footer">
+         <div class="counter">
+            <div class="counter__menu">
+               <span class="counter__title"> Loops result </span>
+               <button class="counter__reset" aria-label="Reset loop results">
+                  <svg class="action__icon" height="24" width="24">
+                     <use xlink:href="./images/icons-pack.svg#icon-loop"></use>
+                  </svg>
+               </button>
+            </div>
+            <div class="counter__results" rel="noopener"></div>
+         </div>
+      </footer>
+      <script src="./scripts/main.js"></script>
+   </body>
 </html>
