@@ -3,16 +3,20 @@ const hourElement = document.querySelector(".hour");
 const minuteElement = document.querySelector(".minute");
 const secondElement = document.querySelector(".second");
 const millisecondElement = document.querySelector(".millisecond");
-const loopResults = document.querySelector(".counter__results");
+const loopResultsElement = document.querySelector(".counter__results");
+const popupElement = document.querySelector(".information");
 
 // Buttons
 const startButton = document.querySelector(".action__start");
 const stopButton = document.querySelector(".action__stop");
 const pouseButton = document.querySelector(".action__pouse");
 const loopButton = document.querySelector(".action__loop");
-const resetLoopResultsButton = document.querySelector(".counter__reset");
+const resetloopResultsElementButton = document.querySelector(".counter__reset");
+const closePopupButton = document.querySelector(".information__button");
 
 const burgerTogleButton = document.querySelector(".burger");
+
+const popupButton = document.querySelector(".pop-up__card");
 
 //Variables
 let hour = 0;
@@ -39,13 +43,13 @@ stopButton.addEventListener("click", () => {
 
 loopButton.addEventListener("click", () => {
    clearInterval(interval);
-   loopResults.append(setLoop());
+   loopResultsElement.append(setLoop());
    resetCountdown();
    interval = setInterval(startContdown, 10);
 });
 
-resetLoopResultsButton.addEventListener("click", () => {
-   loopResults.textContent = "";
+resetloopResultsElementButton.addEventListener("click", () => {
+   loopResultsElement.textContent = "";
    indexResult = 1;
 });
 
@@ -53,6 +57,14 @@ burgerTogleButton.addEventListener("click", () => {
    burgerTogleButton.classList.toggle("active");
    document.querySelector(".menu").classList.toggle("active");
    document.querySelector(".extend-action").classList.toggle("active");
+});
+
+popupButton.addEventListener("click", () => {
+   popupElement.classList.toggle("active");
+});
+
+closePopupButton.addEventListener("click", () => {
+   popupElement.classList.toggle("active");
 });
 
 // Fuunctions
