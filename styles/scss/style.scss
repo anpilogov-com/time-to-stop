@@ -511,3 +511,30 @@ button {
       display: flex;
    }
 }
+
+@media screen and (max-height: 580px) {
+   .timer {
+      min-height: 128px;
+   }
+   .footer {
+      height: 94px;
+   }
+}
+
+@media screen and (max-height: 411px) {
+   .timer {
+      min-height: 64px;
+   }
+   .footer {
+      height: 94px;
+   }
+}
+
+@media screen and (max-height: 320px) {
+   .timer {
+      min-height: 64px;
+   }
+   .footer {
+      height: 94px;
+   }
+}
