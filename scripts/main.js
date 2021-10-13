@@ -3,12 +3,14 @@ const hourElement = document.querySelector(".hour");
 const minuteElement = document.querySelector(".minute");
 const secondElement = document.querySelector(".second");
 const millisecondElement = document.querySelector(".millisecond");
+const loopResults = document.querySelector(".counter__results");
 
 // Buttons
 const startButton = document.querySelector(".action__start");
 const stopButton = document.querySelector(".action__stop");
 const pouseButton = document.querySelector(".action__pouse");
 const loopButton = document.querySelector(".action__loop");
+const resetLoopResultsButton = document.querySelector(".counter__reset");
 
 const burgerTogleButton = document.querySelector(".burger");
 
@@ -18,6 +20,7 @@ let minute = 0;
 let second = 0;
 let millisecond = 0;
 let interval;
+let indexResult = 1;
 
 // Listeners
 startButton.addEventListener("click", () => {
@@ -34,10 +37,22 @@ stopButton.addEventListener("click", () => {
    resetCountdown();
 });
 
+loopButton.addEventListener("click", () => {
+   clearInterval(interval);
+   loopResults.append(setLoop());
+   resetCountdown();
+   interval = setInterval(startContdown, 10);
+});
+
+resetLoopResultsButton.addEventListener("click", () => {
+   loopResults.textContent = "";
+   indexResult = 1;
+});
+
 burgerTogleButton.addEventListener("click", () => {
    burgerTogleButton.classList.toggle("active");
    document.querySelector(".menu").classList.toggle("active");
-   document.querySelector(".menu-extend-action").classList.toggle("active");
+   document.querySelector(".extend-action").classList.toggle("active");
 });
 
 // Fuunctions
@@ -82,4 +97,11 @@ function resetCountdown() {
    secondElement.textContent = "00";
    minuteElement.textContent = "00";
    hourElement.textContent = "00";
+}
+
+function setLoop() {
+   let content = document.createElement("div");
+   content.className = "res";
+   content.innerHTML = `${indexResult++}: ${hour}:${minute}:${second}:${millisecond}`;
+   return content;
 }
