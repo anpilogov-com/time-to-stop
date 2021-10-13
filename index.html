@@ -7,24 +7,86 @@
       <meta name="keywords" content="time, stop, timer, watch" />
       <meta name="description" content="This is a simple timer!" />
       <title>TimeToStop</title>
-      <link rel="stylesheet" href="./styles/css/style.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap"
          rel="stylesheet"
       />
+      <meta name="color-scheme" content="light dark" />
+      <meta
+         name="theme-color"
+         media="(prefers-color-scheme: light)"
+         content="#c7cbcc"
+      />
+      <meta
+         name="theme-color"
+         media="(prefers-color-scheme: dark)"
+         content="#273a43"
+      />
+
+      <script>
+         if (matchMedia("(prefers-color-scheme: dark)").media === "not all") {
+            document.documentElement.style.display = "none";
+            document.head.insertAdjacentHTML(
+               "beforeend",
+               '<link rel="stylesheet" href="styles/light.css" onload="document.documentElement.style.display=\'\'">'
+            );
+         }
+      </script>
+
+      <link
+         rel="stylesheet"
+         href="./styles/css/light.css"
+         media="(prefers-color-scheme: light)"
+      />
+      <link
+         rel="stylesheet"
+         href="./styles/css/dark.css"
+         media="(prefers-color-scheme: dark)"
+      />
+      <link rel="stylesheet" href="./styles/css/style.css" />
    </head>
    <body class="body">
       <header class="header">
          <menu class="menu">
             <div class="quik-action">
-               <div class="light-switch">
+               <fieldset class="switcher">
+                  <legend class="switcher__legend">Схема</legend>
+                  <input
+                     class="switcher__radio switcher__radio--light"
+                     type="radio"
+                     name="color-scheme"
+                     value="light"
+                     aria-label="Светлая"
+                  />
+                  <input
+                     class="switcher__radio switcher__radio--auto"
+                     type="radio"
+                     name="color-scheme"
+                     value="auto"
+                     aria-label="Системная"
+                     checked=""
+                  />
+                  <input
+                     class="switcher__radio switcher__radio--dark"
+                     type="radio"
+                     name="color-scheme"
+                     value="dark"
+                     aria-label="Тёмная"
+                  />
+                  <div class="switcher__status"></div>
+               </fieldset>
+
+               <a
+                  href="#"
+                  rel="noopener"
+                  class="burger"
+                  title="Burger menu"
+                  tabindex="2"
+               >
                   <span></span>
-               </div>
-               <div class="burger">
-                  <span></span>
-               </div>
+               </a>
             </div>
             <div class="extend-action">
                <nav class="navigation">
@@ -45,6 +107,7 @@
                            class="list__content"
                            target="_blank"
                            title="link to my GitHUB"
+                           tabindex="3"
                         >
                            I'm on GitHUB
                         </a>
@@ -59,7 +122,14 @@
                               xlink:href="./images/icons-pack.svg#icon-info"
                            ></use>
                         </svg>
-                        <span class="list__content">Information</span>
+                        <a
+                           href="#"
+                           rel="noopener"
+                           class="list__content"
+                           tabindex="4"
+                        >
+                           Information
+                        </a>
                      </li>
                   </ul>
                </nav>
@@ -82,22 +152,22 @@
             </div>
          </section>
          <section class="actions">
-            <button class="action__start" aria-label="Start timer">
+            <button class="action__start" aria-label="Start timer" tabindex="5">
                <svg class="action__icon" height="24" width="24">
                   <use xlink:href="./images/icons-pack.svg#icon-play"></use>
                </svg>
             </button>
-            <button class="action__pouse" aria-label="Pouse timer">
+            <button class="action__pouse" aria-label="Pouse timer" tabindex="6">
                <svg class="action__icon" height="24" width="24">
                   <use xlink:href="./images/icons-pack.svg#icon-pouse"></use>
                </svg>
             </button>
-            <button class="action__stop" aria-label="Stop timer">
+            <button class="action__stop" aria-label="Stop timer" tabindex="7">
                <svg class="action__icon" height="24" width="24">
                   <use xlink:href="./images/icons-pack.svg#icon-stop"></use>
                </svg>
             </button>
-            <button class="action__loop" aria-label="Loop timer">
+            <button class="action__loop" aria-label="Loop timer" tabindex="8">
                <svg class="action__icon" height="24" width="24">
                   <use xlink:href="./images/icons-pack.svg#icon-loop"></use>
                </svg>
@@ -108,7 +178,11 @@
          <div class="counter">
             <div class="counter__menu">
                <span class="counter__title"> Loops result </span>
-               <button class="counter__reset" aria-label="Reset loop results">
+               <button
+                  class="counter__reset"
+                  aria-label="Reset loop results"
+                  tabindex="9"
+               >
                   <svg class="action__icon" height="24" width="24">
                      <use xlink:href="./images/icons-pack.svg#icon-reset"></use>
                   </svg>
@@ -124,6 +198,7 @@
                <button
                   class="information__button"
                   aria-label="Button close popup menu"
+                  tabindex="10"
                >
                   <svg class="action__icon" height="18" width="18">
                      <use xlink:href="./images/icons-pack.svg#icon-close"></use>
@@ -145,6 +220,7 @@
                      target="_blank"
                      title="link to app repository"
                      class="information__link"
+                     tabindex="11"
                   >
                      <svg
                         class="action__icon action__icon--light"
@@ -162,6 +238,7 @@
                      target="_blank"
                      title="link to my behance profile"
                      class="information__link"
+                     tabindex="12"
                   >
                      <svg
                         class="action__icon action__icon--light"
@@ -177,6 +254,7 @@
                      target="_blank"
                      title="link to my facebook profile"
                      class="information__link"
+                     tabindex="13"
                   >
                      <svg
                         class="action__icon action__icon--light"
@@ -192,6 +270,7 @@
             </div>
          </div>
       </div>
+      <script src="./scripts/scheme.js"></script>
       <script src="./scripts/main.js"></script>
    </body>
 </html>
